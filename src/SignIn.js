@@ -5,7 +5,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>navigation</Text>
+        <Text>Sign In!</Text>
       </View>
     );
   }

@@ -9,12 +9,6 @@ import {createStackNavigator} from 'react-navigation';
 import { withAuthenticator } from 'aws-amplify-react-native';
 
 import Screens from './src/screens';
-import Home from './src/Home';
-import Initializing from './src/Initializing';
-import navigation from './src/navigation';
-import Screen2 from './src/Screen2';
-import SignIn from './src/SignIn';
-import SignUp from './src/SignUp';
 
 import Amplify, {Auth} from 'aws-amplify'; 
 import config from './src/aws-exports';

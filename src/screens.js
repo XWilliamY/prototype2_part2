@@ -1,74 +1,49 @@
-import {createStackNavigator} from 'react-navigation';
+import {
+    createStackNavigator,
+    createBottomTabNavigator,
+    createSwitchNavigator
+} from 'react-navigation';
 import React, {Component} from 'react';
 import {View,Text} from 'react-native';
 
 import Home from './Home';
 import Initializing from './Initializing';
-import navigation from './navigation';
 import Screen2 from './Screen2';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-class HomeScreen extends React.Component {
-    render() {
-      return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Home Screen</Text>
-        </View>
-      );
-    }
-  }
-  
-  class DetailsScreen extends React.Component {
-    render() {
-      return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Details Screen</Text>
-        </View>
-      );
-    }
-  }
-  
-  const RootStack = createStackNavigator(
+const Stack = createStackNavigator(
     {
-      Home: HomeScreen,
-      Details: DetailsScreen,
-    },
+        Home: { screen: Home },
+        Screen2 : { screen: Screen2 }},
     {
-      initialRouteName: 'Home',
+        initialRouteName: 'Home'
     }
-  );
+)
 
-  export default class Screens extends Component{
-      render (){
-          return <RootStack/>;
-      }
-  }
-
-
-/*
-const screens = createStackNavigator({
-    Home: {
-        screen: Home
-    },});
-    Initializing: {
-        screen: Initializing
-    },
-    navigation : {
-        screen: navigation
-    },
-    Screen2: {
-        screen: Screen2
-    },
-    SignIn: {
-        screen: SignIn
-    },
-    SignUp:
+const Tabs = createBottomTabNavigator(
     {
-        screen: SignUp
-    },
-}, {
-    initialRouteName: 'Initializing'
-});
-*/
+        SignIn: { screen: SignIn },
+        SignUp: { screen: SignUp }},
+    {
+        initialRouteName: 'SignUp'
+    }
+)
+
+const RootStack = createSwitchNavigator(
+    {
+        Initializing: { screen: Initializing },
+        Home: { screen: Stack },
+        Auth: {screen: Tabs}
+
+    }, 
+    { initialRouteName: 'Initializing' }
+);
+
+export default class Screens extends Component{
+    render (){
+        return <RootStack/>;
+    }
+}
+
 
