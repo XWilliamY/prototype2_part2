@@ -34,7 +34,7 @@ const RootStack = createSwitchNavigator(
     {
         Initializing: { screen: Initializing },
         Home: { screen: Stack },
-        Auth: {screen: Tabs}
+        Auth: { screen: Tabs }
 
     }, 
     { initialRouteName: 'Initializing' }
