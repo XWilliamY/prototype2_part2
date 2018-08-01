@@ -14,45 +14,11 @@ import Amplify, {Auth} from 'aws-amplify';
 import config from './src/aws-exports';
 Amplify.configure(config);
 
-
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-      </View>
-    );
-  }
-}
-
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }
-}
-
-const RootStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Details: DetailsScreen,
-  },
-  {
-    initialRouteName: 'Home',
-  }
-);
-
 export default class App extends React.Component {
   render() {
     return <Screens />;
   }
 }
-
-
-// export default withAuthenticator(App);
 
 const styles = StyleSheet.create({
   input: {

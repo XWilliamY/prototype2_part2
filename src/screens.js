@@ -26,7 +26,7 @@ const Tabs = createBottomTabNavigator(
         SignIn: { screen: SignIn },
         SignUp: { screen: SignUp }},
     {
-        initialRouteName: 'SignUp'
+        initialRouteName: 'SignIn'
     }
 )
 

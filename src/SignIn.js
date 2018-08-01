@@ -8,8 +8,17 @@ import {
   AsyncStorage
 } from 'react-native'
 import { USER_KEY } from './config';
+import { SelectMFAType } from 'aws-amplify-react';
+import awsmobile from './aws-exports';
+import Amplify, {Auth} from 'aws-amplify';
 
-import {Auth} from 'aws-amplify';
+Amplify.configure(awsmobile);
+
+const MFATypes = {
+  SMS: true, // if SMS enabled in your user pool
+  TOTP: true, // if TOTP enabled in your user pool
+  Optional: true, // if MFA is set to optional in your user pool
+}
 
 export default class SignIn extends Component{
   state = {
@@ -26,7 +35,6 @@ export default class SignIn extends Component{
       const user = await Auth.signIn(username, password)
       console.log('user successfully signed in!', user)
       this.setState({ user, showConfirmationForm: true })
-      console.log(user)
     } catch(err){
       console.log('error', err)
       alert(err)
@@ -36,7 +44,7 @@ export default class SignIn extends Component{
   confirmSignIn = async () => {
     const { user, authenticationCode } = this.state
     try {
-       await Auth.confirmSignIn(user, authenticationCode, 'SMS')
+       await Auth.confirmSignIn(user, authenticationCode)
        console.log('user successfully signed in!', user)
        this.props.navigation.navigate('Home')
     } catch (err) {

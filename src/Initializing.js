@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import {USER_KEY} from './config';
+import {Auth} from 'aws-amplify';
 
 /*
 We check AsyncStorage to see if we have a user saved in storage, 
@@ -16,7 +17,7 @@ if not we load the Auth routes (SignIn & SignUp).
 export default class Initializing extends Component {
   async componentDidMount(){
     try{
-      const user = await AsyncStorage.getItem(USER_KEY)
+      const user = await Auth.currentAuthenticatedUser()
       console.log('user: ', user)
       if (user){
         this.props.navigation.navigate('Home');
