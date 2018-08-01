@@ -1,11 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, {Component} from 'react';
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+} from 'react-native';
 
-class Screen2 extends React.Component {
+
+class Screen2 extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>navigation</Text>
+        <Text>Screen2</Text>
       </View>
     );
   }
