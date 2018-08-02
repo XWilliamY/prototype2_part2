@@ -7,16 +7,6 @@ import {
 } from 'react-native';
 
 import { Auth } from 'aws-amplify'
-import gql from 'graphql-tag';
- 
-const query = gql`
-  {
-    user(id: 5) {
-      firstName
-      lastName
-    }
-  }
-`
 
 
 class Screen2 extends Component {

@@ -12,16 +12,19 @@ import Screen2 from './Screen2';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-const Stack = createStackNavigator(
+
+
+const HomeStack = createStackNavigator(
     {
         Home: { screen: Home },
-        Screen2 : { screen: Screen2 }},
+        Screen2 : { screen: Screen2 },
+    },
     {
         initialRouteName: 'Home'
     }
 )
 
-const Tabs = createBottomTabNavigator(
+const AuthTab = createBottomTabNavigator(
     {
         SignIn: { screen: SignIn },
         SignUp: { screen: SignUp }},
@@ -33,8 +36,8 @@ const Tabs = createBottomTabNavigator(
 const RootStack = createSwitchNavigator(
     {
         Initializing: { screen: Initializing },
-        Home: { screen: Stack },
-        Auth: { screen: Tabs }
+        Home: { screen: HomeStack },
+        Auth: { screen: AuthTab }
 
     }, 
     { initialRouteName: 'Initializing' }

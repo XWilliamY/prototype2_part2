@@ -46,7 +46,8 @@ export default class SignIn extends Component{
     try {
        await Auth.confirmSignIn(user, authenticationCode)
        console.log('user successfully signed in!', user)
-       this.props.navigation.navigate('Home')
+       this.props.navigation.navigate('Home', {
+         username: this.state.username})
     } catch (err) {
       console.log('error:', err)
     }

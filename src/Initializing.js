@@ -3,7 +3,7 @@ import {
   View, 
   Text,
   StyleSheet,
-  AsyncStorage 
+  ActivityIndicator
 } from 'react-native';
 
 import {USER_KEY} from './config';
@@ -33,6 +33,7 @@ export default class Initializing extends Component {
       return (
         <View style={styles.container}>
           <Text style={styles.welcome}>Loading</Text>
+          <ActivityIndicator size="large" color="#0000ff" />
         </View>
       )
     }

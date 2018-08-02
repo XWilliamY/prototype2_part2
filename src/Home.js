@@ -4,12 +4,10 @@ import {
   Text,
   Button,
   StyleSheet,
-  AsyncStorage
 } from 'react-native'
 
 import { USER_KEY } from './config'
-import { Auth } from 'aws-amplify'
-
+import { API, Auth } from 'aws-amplify'
 
 export default class Home extends Component {
   static navigationOptions = {
@@ -25,7 +23,9 @@ export default class Home extends Component {
 
   state = {
     username: '',
+    data: ''
   }
+
   async componentDidMount() {
     Auth.currentUserInfo()
       .then(data => {
@@ -55,8 +55,9 @@ export default class Home extends Component {
         />
         <Button
           onPress={() => this.props.navigation.navigate('Screen2')}
-          title="View next screen"
+          title="Monitor Energy"
         />
+        <Text>Check out the payload: {this.state.data}</Text>
       </View>
     )
   }
