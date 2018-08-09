@@ -2,40 +2,6 @@
 apps:
   react-native: !com.amazonaws.mobilehub.v0.AppDO {}
 features:
-  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
-    components:
-      sampleCloudApi: !com.amazonaws.mobilehub.v0.API 
-        attributes:
-          name: sampleCloudApi
-          requires-signin: false
-          sdk-generation-stage-name: Development
-        paths:
-          /items: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180802161417.zip
-            description: 'Handler for calls to resource path : /items/{proxy+}'
-            enableCORS: true
-            environment: {}
-            handler: lambda.handler
-            hashcode: wv9CW2BJJ8v9jfAgfssZ/3VJIOe7Go0kINe79Jss0+I=
-            memorySize: '128'
-            modified: '2018-08-02T20:15:19.092+0000'
-            name: sampleLambda
-            runtime: nodejs6.10
-            timeout: '3'
-            version: vBZJ.NWD4H4jSgvK_QeCKq2WvFmTElDj
-          '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180802161417.zip
-            description: 'Handler for calls to resource path : /items/{proxy+}'
-            enableCORS: true
-            environment: {}
-            handler: lambda.handler
-            hashcode: wv9CW2BJJ8v9jfAgfssZ/3VJIOe7Go0kINe79Jss0+I=
-            memorySize: '128'
-            modified: '2018-08-02T20:15:19.092+0000'
-            name: sampleLambda
-            runtime: nodejs6.10
-            timeout: '3'
-            version: x8X4mxhMOHoTqgPUopE_laxUFBrY04HZ
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
