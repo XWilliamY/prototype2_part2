@@ -1,22 +1,20 @@
 import React, {Component} from 'react'
 import {
-  View,
   Text,
-  Button,
   StyleSheet,
-  TextInput,
-  StatusBar
 } from 'react-native'
 
 import { 
   Container, 
-  Header, 
   Content, 
-  Form, 
-  Item, 
-  Input, 
-  Label 
+  Tab,
+  Tabs,
+  Button
 } from 'native-base';
+
+import Completed from '../types/Completed'
+import Energy from '../types/Energy'
+import Transportation from '../types/Transportation'
 
 import { API, Auth } from 'aws-amplify'
 
@@ -66,32 +64,35 @@ export default class Home extends Component {
 
   }
 
+
   render() {
     return (
-      <Container style={styles.container}>
+      <Container style={styles.container}>{/*
+       <Tabs tabBarUnderlineStyle={{backgroundColor:'white'}}>
+       <Tab 
+        heading="Completed" 
+        activeTabStyle={{backgroundColor: '#4F9A94'}} 
+        activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+        <Completed />
+        </Tab>
+      <Tab 
+        heading="Energy" 
+        activeTabStyle={{backgroundColor: '#4F9A94'}} 
+        activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+        <Energy />
+        </Tab>
+      <Tab
+
+    heading="Transportation" 
+    activeTabStyle={{backgroundColor: '#4F9A94'}} 
+    activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+        <Transportation />
+        </Tab>
+      </Tabs>*/}
         <Content>
-        <Text>Hello, {this.state.username}.</Text>
-        <Button
-          onPress={this.logout}
-          title="Sign Out"
-        />
-        <Button
-          onPress={() => this.props.navigation.navigate('MonitorStack')}
-          title="Monitor Energy"
-        />
-        <Item>
-            <Input 
-            placeholder="Purchase energy here"
-            keyboardType='number-pad'
-            onChangeText = {(text) => this.setState({
-              temp: text
-            })}
-             />
-          </Item>
-        <Button
-        title = "Submit"
-        onPress={this.submitForm}/>
-        <Text>You have requested {this.state.kwh}, submitting.</Text>
+        <Button onPress={()=>this.props.navigation.navigate('DescriptionScreen')}>
+            <Text>Click Me!</Text>
+          </Button>
         </Content>
       </Container>
     )

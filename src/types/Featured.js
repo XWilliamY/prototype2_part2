@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import { Auth } from 'aws-amplify'
 import {Container, Content, Text} from 'native-base';
 
-export default class Profile extends Component{
+export default class Featured extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -25,10 +25,7 @@ export default class Profile extends Component{
         return (
         <Container>
         <Content>
-        <Text>Hello, hello, hello, {this.state.username}.</Text>
-        {
-            this.state.done && <Text>Hi</Text>
-        }
+        <Text>Featured</Text>
         </Content>
         </Container>
         );
