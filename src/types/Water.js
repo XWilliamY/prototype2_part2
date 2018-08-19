@@ -25,7 +25,7 @@ export default class Water extends Component{
         return (
         <Container>
         <Content>
-        <Text>Featured</Text>
+        <Text>Water</Text>
         </Content>
         </Container>
         );

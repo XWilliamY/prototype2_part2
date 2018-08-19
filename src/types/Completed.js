@@ -65,7 +65,9 @@ export default class Completed extends Component{
         }
     render() {
         return (
+            <Container>
             <Content>
+                <Text>hi</Text>
                 <Button onPress={()=>this.props.navigation.navigate('DescriptionScreen')}>
             <Text>Click Me!</Text>
           </Button>
@@ -86,6 +88,7 @@ export default class Completed extends Component{
             </FlatList>*/}
             <Text>what is happpening </Text>
             </Content>
+            </Container>
         );
     }
 }

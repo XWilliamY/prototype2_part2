@@ -1,7 +1,15 @@
 import React, {Component} from 'react'
 
 import { Auth } from 'aws-amplify'
-import { Container, Header, Content, List, ListItem, Text } from 'native-base';
+import { 
+    Container, 
+    Header, 
+    Content, 
+    List, 
+    ListItem, 
+    Text,
+    Button
+} from 'native-base';
 
 import {
     ImageBackground,
@@ -19,6 +27,9 @@ export default class Transportation extends Component {
     render() {
         return (
             <Container>
+                <Button onPress={()=>this.props.navigation.navigate('DescriptionScreen')}>
+                <Text>Click Me!</Text>
+                </Button>
                 <Content>
                 <ActionList actionType = 'restaurants'/>
                 </Content>

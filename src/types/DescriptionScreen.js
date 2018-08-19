@@ -8,7 +8,7 @@ import {
 export default class DescriptionScreen extends Component{
     render(){
         return(
-            <Text>Hi</Text>
+            <Text>This is the generic description page</Text>
         )
     }
 }

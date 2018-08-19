@@ -20,56 +20,32 @@ import DescriptionScreen from './types/DescriptionScreen'
 import Completed from './types/Completed';
 import Transportation from './types/Transportation';
 import Energy from './types/Energy';
+import Water from './types/Water';
 
-import {
-    Tab,
-    Tabs,
-    Header,
-    Container, 
-    Text
-} from 'native-base';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // define each screen as its own stack to grant it a header
 
 const Actions = createMaterialTopTabNavigator(
     {
-        Completed:
-        {
-            screen: Completed
-        },
-        Energy:
-        {
-            screen: Energy
-        },
-        Transportation:
-        {
-            screen: Transportation
-        }
-
+        Completed: { screen: Completed },
+        Energy: { screen: Energy },
+        Transportation: { screen: Transportation },
+        Water: { screen: Water }
     },
     {
-        tabBarComponent: props => {
-            return (
-                <Tabs tabBarUnderlineStyle={{backgroundColor:'white'}}>
-                <Tab 
-                 heading="Completed" 
-                 activeTabStyle={{backgroundColor: '#4F9A94'}} 
-                 activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
-                 </Tab>
-               <Tab 
-                 heading="Energy" 
-                 activeTabStyle={{backgroundColor: '#4F9A94'}} 
-                 activeTextStyle={{color: 'white', fontWeight: 'bold'}}
-                >
-                 </Tab>
-               <Tab
-             heading="Transportation" 
-             activeTabStyle={{backgroundColor: '#4F9A94'}} 
-             activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
-                 </Tab>
-               </Tabs>
-            );
+        tabBarPosition: 'top',
+        tabBarOptions: {
+            scrollEnabled: true,
+            indicatorStyle: {
+                borderBottomWidth: 3,
+                borderBottomColor: 'white'
+            },
+            activeTintColor: 'white',
+            inactiveTintColor: '#F2F2F2',
+            style: {
+                backgroundColor: '#4F9A94'
+            }
         }
     }
 )
@@ -79,18 +55,22 @@ const HomeStack = createStackNavigator(
         Home:
         {
             screen: Actions
+        },
+        DescriptionScreen:
+        {
+            screen: DescriptionScreen
         }
     },
     {
         navigationOptions: {
-            title:"hello there",
+            title:"Sustainable Actions",
             headerStyle: {
                 backgroundColor: '#4F9A94',
             },
             headerTitleStyle: {
                 color: 'white'
             },
-            headerTruncatedBackTitle: 'Home',
+            headerTruncatedBackTitle: 'Actions',
         }
     }
 )
@@ -180,8 +160,33 @@ const HomeTabs = createBottomTabNavigator(
     },
     {
         initialRouteName: 'Home',
-    }
-)
+        tabBarOptions: {
+            activeTintColor: '#4F9A94',
+            inactiveTintColor: 'grey',
+            style: {
+                backgroundColor: 'white'
+            }
+        },
+        navigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, tintColor }) => {
+              const { routeName } = navigation.state;
+              let iconName;
+              if (routeName === 'Home') {
+                iconName = `ios-home`;
+              } else if (routeName === 'Monitor') {
+                iconName = `ios-home`;
+              } else if (routeName === 'Connect') {
+                iconName = `ios-home`;
+              } else{
+                  iconName = `ios-home`;
+              }
+              // You can return any component that you like here! We usually use an
+              // icon component from react-native-vector-icons
+              return <Icon name={iconName} size={25} color={tintColor} />;
+            },
+          }),
+        }
+    );
 
 const AuthTab = createBottomTabNavigator(
     {

@@ -4,7 +4,7 @@ import {
   StyleSheet, 
   Text, 
   View, 
-  Button, TextInput
+  Button, TextInput, SafeAreaView
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import Screens from './src/screens';
@@ -58,7 +58,9 @@ const WithProvider = () => (
 
 export default class App extends React.Component {
   render() {
-    return <Screens/>;
+    return <SafeAreaView style={{flex: 1}}>
+    <Screens/>
+    </SafeAreaView>;
   }
 }
 

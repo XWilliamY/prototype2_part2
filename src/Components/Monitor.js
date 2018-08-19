@@ -4,8 +4,12 @@ import {
   StyleSheet,
   ListView
 } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Text, Icon, Right, Button,
-List, ListItem } from 'native-base';
+import { 
+  Container,
+  Tab,
+  Tabs,
+  ScrollableTab
+} from 'native-base';
 
 import { Auth } from 'aws-amplify'
 
@@ -20,6 +24,11 @@ const datas = [
   'Phil Coutinho',
 ];
 
+
+import Completed from '../types/Completed'
+import Energy from '../types/Energy'
+import Transportation from '../types/Transportation'
+import Water from '../types/Water';
 
 class Monitor extends Component {
   constructor(props){
@@ -53,35 +62,34 @@ class Monitor extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <Container>
-            <Content>
-            <Text>Hey {this.state.username}, this is screen222222!</Text>
-              <Card>
-                <CardItem>
-                  <Icon active name="logo-googleplus" />
-                  <Text>Google Plus</Text>
-                  <Right>
-                    <Icon name="arrow-forward" />
-                  </Right>
-                 </CardItem>
-               </Card>
-               <List
-            leftOpenValue={75}
-            rightOpenValue={-75}
-            dataSource={this.ds.cloneWithRows(this.state.listViewData)}
-            renderRow={data =>
-              <ListItem>
-                <Text> {data} </Text>
-              </ListItem>}
-            renderLeftHiddenRow={data =>
-              <Button full onPress={() => alert(data)}>
-                <Icon active name="information-circle" />
-              </Button>}
-            renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-              <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
-                <Icon active name="trash" />
-              </Button>}
-          />
-            </Content>
+        <Tabs 
+                renderTabBar={()=> <ScrollableTab />}
+                tabBarUnderlineStyle={{backgroundColor:'white'}}>
+                    <Tab 
+                    heading="Completed" 
+                    activeTabStyle={{backgroundColor: '#4F9A94'}} 
+                    activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+                    <Completed/>
+                    </Tab>
+                    <Tab 
+                    heading="Energy" 
+                    activeTabStyle={{backgroundColor: '#4F9A94'}} 
+                    activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+                    <Energy/>
+                    </Tab>
+                    <Tab
+                    heading="Transportation" 
+                    activeTabStyle={{backgroundColor: '#4F9A94'}} 
+                    activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+                    <Transportation/>
+                    </Tab>
+                    <Tab 
+                    heading="Water"
+                    activeTabStyle={{backgroundColor: '#4F9A94'}} 
+                    activeTextStyle={{color: 'white', fontWeight: 'bold'}}>
+                    <Water/>
+                    </Tab>
+               </Tabs>
           </Container>
     );
   }
