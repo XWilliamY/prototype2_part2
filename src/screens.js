@@ -36,6 +36,7 @@ const Actions = createMaterialTopTabNavigator(
     {
         tabBarPosition: 'top',
         tabBarOptions: {
+            upperCaseLabel: false,
             scrollEnabled: true,
             indicatorStyle: {
                 borderBottomWidth: 3,
@@ -45,6 +46,9 @@ const Actions = createMaterialTopTabNavigator(
             inactiveTintColor: '#F2F2F2',
             style: {
                 backgroundColor: '#4F9A94'
+            },
+            labelStyle: {
+                fontSize: 14
             }
         }
     }
@@ -66,11 +70,16 @@ const HomeStack = createStackNavigator(
             title:"Sustainable Actions",
             headerStyle: {
                 backgroundColor: '#4F9A94',
+                elevation: 0,
+                borderBottomWidth: 0,
             },
             headerTitleStyle: {
-                color: 'white'
+                color: 'white',
+                fontWeight: 'normal'
+
             },
             headerTruncatedBackTitle: 'Actions',
+            headerLeft: <Icon name={'ios-search'} size={25} color={'white'} />
         }
     }
 )
@@ -87,6 +96,8 @@ const MonitorStack = createStackNavigator(
             title:"hi",
             headerStyle: {
                 backgroundColor: '#4F9A94',
+                elevation: 0,
+                borderBottomWidth: 0
             },
             headerTitleStyle: {
                 color: 'white'
@@ -108,6 +119,8 @@ const ProfileStack = createStackNavigator(
             title:"hi",
             headerStyle: {
                 backgroundColor: '#4F9A94',
+                elevation: 0,
+                borderBottomWidth: 0
             },
             headerTitleStyle: {
                 color: 'white'
@@ -129,6 +142,8 @@ const ConnectStack = createStackNavigator(
             title:"hi",
             headerStyle: {
                 backgroundColor: '#4F9A94',
+                elevation: 0,
+                borderBottomWidth: 0
             },
             headerTitleStyle: {
                 color: 'white'
@@ -164,7 +179,7 @@ const HomeTabs = createBottomTabNavigator(
             activeTintColor: '#4F9A94',
             inactiveTintColor: 'grey',
             style: {
-                backgroundColor: 'white'
+                backgroundColor: 'white',
             }
         },
         navigationOptions: ({ navigation }) => ({

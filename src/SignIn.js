@@ -30,6 +30,16 @@ export default class SignIn extends Component{
     this.setState({ [key]: value })
   }
   signIn = async () => {
+    this.setState({showConfirmationForm: true})
+  }
+
+  confirmSignIn = async () => {
+    this.props.navigation.navigate('Home', {
+      username: 'xwilliamy'
+    })
+  }
+  /*
+  signIn = async () => {
     const {username, password} = this.state
     try {
       const user = await Auth.signIn(username, password)
@@ -52,6 +62,8 @@ export default class SignIn extends Component{
       console.log('error:', err)
     }
   }
+  */
+
   render() {
     return (
       <View style={styles.container}>

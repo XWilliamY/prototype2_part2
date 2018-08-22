@@ -28,7 +28,10 @@ export default class ActionList extends Component {
     }  // defines the UI of each row in the list
     renderRow(restaurant) {
       return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress= {() => this.props.navigation.navigate('DescriptionScreen', {
+          action: 'Transportation',
+          name: restaurant.name
+        })}>
         <ImageBackground styleName="large-banner" source={{ uri: restaurant.image &&
           restaurant.image.url ? restaurant.image.url : undefined  }}>
           <Tile>

@@ -2,13 +2,17 @@ import React, {Component} from 'react'
 import {
     List,
     ListItem,
-    Text
+    Text,
+    Content
 } from 'native-base';
 
 export default class DescriptionScreen extends Component{
     render(){
         return(
-            <Text>This is the generic description page</Text>
+            <Content>
+            <Text>Coming from {this.props.navigation.state.params.action}</Text>
+            <Text>With name {this.props.navigation.state.params.name}</Text>
+            </Content>
         )
     }
 }

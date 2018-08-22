@@ -67,26 +67,12 @@ export default class Completed extends Component{
         return (
             <Container>
             <Content>
-                <Text>hi</Text>
-                <Button onPress={()=>this.props.navigation.navigate('DescriptionScreen')}>
+                <Button onPress={()=>this.props.navigation.navigate('DescriptionScreen', 
+                {
+                    action: 'Completed'
+                })}>
             <Text>Click Me!</Text>
           </Button>
-                <Text>Hi</Text>
-                {/*}
-                <FlatList
-                data = {FlatListData}
-                renderItem = {({item, index}) =>{
-                    return (
-                    <FlatListRow
-                    item = {item}
-                    index = {index}>
-
-                    </FlatListRow>);
-                } }
-                >
-
-            </FlatList>*/}
-            <Text>what is happpening </Text>
             </Content>
             </Container>
         );
